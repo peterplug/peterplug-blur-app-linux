@@ -41,4 +41,6 @@ If FFmpeg isnt installed, make sure to install it (this will vary based on your 
 
 ![Screenshot From 2025-01-18 20-30-35](https://github.com/user-attachments/assets/9868f2d1-d490-4e41-bc1f-783413766d94)
 
+If you didn't have FFmpeg installed you might have to restart your pc.
+
 After all the steps are done correctly you can finally add motion blur to your videos!
