@@ -8,14 +8,18 @@ class PeterplugBlurApp:
     def __init__(self, root):
         self.root = root
         self.root.title("peterplug blur app")
-        self.root.geometry("660x160")
+        self.root.geometry("680x240")
         self.root.resizable(False, False)
         self.input_file = None
         self.process = None
         self.frame_rate = tk.StringVar()
-        self.frame_rate.set("24")  # default value
+        self.frame_rate.set("30")  # default value
         self.resolution = tk.StringVar()
         self.resolution.set("1920x1080")  # default value
+        self.blur_strength = tk.StringVar()
+        self.blur_strength.set("4")  # default value
+        self.bitrate = tk.StringVar()
+        self.bitrate.set("35M")  # default value
         
         # create frame for buttons
         self.button_frame = tk.Frame(self.root)
@@ -33,24 +37,38 @@ class PeterplugBlurApp:
         self.select_button.grid(row=0, column=2, padx=5)
 
         # create frame rate label and dropdown
-        self.frame_rate_label = tk.Label(self.button_frame, text="Res/FPS:")
+        self.frame_rate_label = tk.Label(self.button_frame, text="Resolution/FPS:")
         self.frame_rate_label.grid(row=1, column=0, padx=5)
 
-        self.frame_rate_dropdown = tk.OptionMenu(self.button_frame, self.frame_rate, "24", "30", "60")
+        self.frame_rate_dropdown = tk.OptionMenu(self.button_frame, self.frame_rate, "18", "24", "30", "60")
         self.frame_rate_dropdown.grid(row=1, column=2, padx=5)
 
         self.resolution_dropdown = tk.OptionMenu(self.button_frame, self.resolution, "1280x720", "1920x1080", "2560x1440")
         self.resolution_dropdown.grid(row=1, column=1, padx=5)
 
+        # create bitrate label and dropdown
+        self.bitrate_label = tk.Label(self.button_frame, text="Bitrate:")
+        self.bitrate_label.grid(row=2, column=0, padx=5)
+
+        self.bitrate_dropdown = tk.OptionMenu(self.button_frame, self.bitrate, "5M", "8M", "12M", "16M", "24M", "35M", "53M")
+        self.bitrate_dropdown.grid(row=2, column=1, padx=5)
+
+        # create blur strength label and dropdown
+        self.blur_strength_label = tk.Label(self.button_frame, text="Blur Strength:")
+        self.blur_strength_label.grid(row=3, column=0, padx=5)
+
+        self.blur_strength_dropdown = tk.OptionMenu(self.button_frame, self.blur_strength, "2", "3", "4", "5", "6")
+        self.blur_strength_dropdown.grid(row=3, column=1, padx=5)
+
         # create start button
         self.start_button = tk.Button(self.button_frame, text="Start", command=self.start_blur)
-        self.start_button.grid(row=2, column=1, padx=5,pady=5)
+        self.start_button.grid(row=4, column=1, padx=5,pady=5)
 
         # create status bar
         self.status_bar = tk.Label(self.root, text="Select a file and press Start")
         self.status_bar.pack(pady=5)
 
-        # cind the close event to the on_close method
+        # bind the close event to the on_close method
         self.root.protocol("WM_DELETE_WINDOW", self.on_close)
 
     def select_input_file(self):
@@ -71,7 +89,7 @@ class PeterplugBlurApp:
             os.remove(output_file)
 
         # create the ffmpeg command
-        command = f"ffmpeg -i {self.input_entry.get()} -vf 'scale={self.resolution.get()}, minterpolate=mi_mode=mci:mc_mode=aobmc:vsbmc=1, tblend=all_mode=average' -pix_fmt yuv420p -b:v 24M -r {self.frame_rate.get()} {output_file}"
+        command = f"ffmpeg -i {self.input_entry.get()} -vf 'scale={self.resolution.get()}, tmix=frames={self.blur_strength.get()}:weights=1' -pix_fmt yuv420p -b:v {self.bitrate.get()} -r {self.frame_rate.get()} {output_file}"
 
         # run the ffmpeg command in a separate thread
         self.thread = threading.Thread(target=self.run_ffmpeg, args=(command, output_file))
