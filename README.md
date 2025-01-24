@@ -1,11 +1,16 @@
-# A Python program that adds motion blur to videos using FFmpeg
+# add clean motion blur to your videos on linux 
 
 ![Screenshot From 2025-01-18 20-39-55](https://github.com/user-attachments/assets/74858589-d0c4-49fc-bd77-bbb826925b9a)
 
+## CHECK SETUP GUIDE BELOW
+
+# without/with motion blur:
+
+![Screenshot From 2025-01-24 06-51-53](https://github.com/user-attachments/assets/70d8bd1c-fe44-47f7-9130-8ec2f5169e28)![Screenshot From 2025-01-24 06-52-43](https://github.com/user-attachments/assets/9f646f8d-ec9e-4c5b-838f-1ca892ea3b18)
 
 
 
-## Setup guide:
+## setup guide:
 
 Firstly download peterplug-blur-app from my repository.
 
