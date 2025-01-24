@@ -1,6 +1,6 @@
 # add clean motion blur to your videos on linux 
 
-![Screenshot From 2025-01-18 20-39-55](https://github.com/user-attachments/assets/74858589-d0c4-49fc-bd77-bbb826925b9a)
+![Screenshot From 2025-01-24 07-50-34](https://github.com/user-attachments/assets/0406294b-3e07-4a03-85d3-c0742081dbcf)
 
 ## CHECK SETUP GUIDE BELOW
 
