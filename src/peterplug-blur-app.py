@@ -57,7 +57,7 @@ class PeterplugBlurApp:
         self.blur_strength_label = tk.Label(self.button_frame, text="Blur Strength:")
         self.blur_strength_label.grid(row=3, column=0, padx=5)
 
-        self.blur_strength_dropdown = tk.OptionMenu(self.button_frame, self.blur_strength, "2", "3", "4", "5", "6")
+        self.blur_strength_dropdown = tk.OptionMenu(self.button_frame, self.blur_strength, "2", "3", "4", "5", "6", "8")
         self.blur_strength_dropdown.grid(row=3, column=1, padx=5)
 
         # create start button
