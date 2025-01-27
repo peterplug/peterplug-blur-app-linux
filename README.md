@@ -1,12 +1,14 @@
 # add clean motion blur to your videos on linux 
 
-![Screenshot From 2025-01-24 07-50-34](https://github.com/user-attachments/assets/0406294b-3e07-4a03-85d3-c0742081dbcf)
+![image](https://github.com/user-attachments/assets/66881b28-f189-4171-82e5-27602681c707)
+
 
 ## CHECK SETUP GUIDE BELOW
 
-# without/with motion blur:
+# 120fps footage interpolated to 600fps, 12 smoothness:
 
-![Screenshot From 2025-01-24 06-51-53](https://github.com/user-attachments/assets/70d8bd1c-fe44-47f7-9130-8ec2f5169e28)![Screenshot From 2025-01-24 06-52-43](https://github.com/user-attachments/assets/9f646f8d-ec9e-4c5b-838f-1ca892ea3b18)
+![image](https://github.com/user-attachments/assets/c42f31c8-aeee-4623-b3d3-51322bc562ac)
+
 
 
 
